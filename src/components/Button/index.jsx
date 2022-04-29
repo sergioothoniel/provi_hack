@@ -1,8 +1,8 @@
 import { ButtonContainer } from "./styles"
 
-const Button = ({children, ...rest}) =>{
+const Button = ({children, colorSchema = false, ...rest}) =>{
     return(
-        <ButtonContainer {...rest}>{children}</ButtonContainer>
+        <ButtonContainer colorSchema={colorSchema} {...rest}>{children}</ButtonContainer>
     )
 }
 

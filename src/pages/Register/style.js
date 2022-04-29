@@ -8,9 +8,12 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 justify-content: space-between;
+max-width: 500px;
+margin: auto;
 
 h1{
     margin-bottom: 70px;
+    margin-top: 55px;
 }
 
 label{
@@ -25,6 +28,7 @@ h5{
     text-align: start;
     font-size: small;
     font-weight: normal;
+    margin: 30px 0;
 }
 
 a{
