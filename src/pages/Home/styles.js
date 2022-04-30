@@ -15,7 +15,7 @@ hr{
 
 header{
     display: flex;
-    padding: 15px 0 0 21px;
+    padding-top: 15px;
     align-items: center;
 
     button{
