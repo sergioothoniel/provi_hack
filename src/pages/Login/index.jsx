@@ -1,44 +1,65 @@
-import Button from "../../components/Button"
-import Input from "../../components/Input"
-import { LoginContainer } from "./styles"
+import Button from "../../components/Button";
+import Input from "../../components/Input";
+import { LoginContainer } from "./styles";
 
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 
+const Login = () => {
+  const history = useHistory();
 
-const Login = () =>{
+  const schema = yup.object().shape({
+    email: yup.string().email("Email inválido").required("Campo Obrigatório"),
+    password: yup
+      .string()
+      .required("Campo obrigatório")
+      .min(6, "Mínimo de 6 caracteres"),
+  });
 
-    const history = useHistory()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-    const schema = yup.object().shape({
-        email: yup.string().email("Email inválido").required("Campo Obrigatório"),
-        password: yup.string().required("Campo obrigatório").min(6, "Mínimo de 6 caracteres"),
-    })
+  const onSubmitFunction = (data) => {
+    console.log(data);
+    history.push("/");
+  };
 
-    const {register, handleSubmit, formState: { errors }} = useForm({ resolver: yupResolver(schema) });
+  return (
+    <LoginContainer>
+      <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <h1>Entrar</h1>
+        <Input
+          placeholder="Digite seu email"
+          type={"text"}
+          register={register}
+          name="email"
+          error={errors.email?.message}
+        >
+          Email:
+        </Input>
+        <Input
+          placeholder="Digite sua senha"
+          type={"password"}
+          register={register}
+          name="password"
+          error={errors.password?.message}
+        >
+          Senha:
+        </Input>
+        <Button type="submit">Entrar</Button>
+      </form>
 
-    const onSubmitFunction = (data) =>{
-        console.log(data)
-        history.push("/")
-    }
+      <p>
+        Ainda não é cadastrado? <a href="/register">Clique aqui</a> e
+        cadastre-se!
+      </p>
+    </LoginContainer>
+  );
+};
 
-    return(
-        <LoginContainer>
-            
-
-            <form onSubmit={handleSubmit(onSubmitFunction)}>
-                <h1>Entrar</h1>               
-                <Input placeholder="Digite seu email" type={'text'} register={register} name='email' error={errors.email?.message}>Email:</Input>
-                <Input placeholder="Digite sua senha" type={'password'} register={register} name='password' error={errors.password?.message}>Senha:</Input>
-                <Button type='submit'>Entrar</Button>                            
-            </form>
-
-            <p>Ainda não é cadastrado? <a href="/register">Clique aqui</a> e cadastre-se!</p>
-
-        </LoginContainer>
-    )
-}
-
-export default Login
+export default Login;

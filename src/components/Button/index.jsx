@@ -1,9 +1,19 @@
-import { ButtonContainer } from "./styles"
+import { ButtonContainer } from "./styles";
 
-const Button = ({children, colorSchema = false, ...rest}) =>{
-    return(
-        <ButtonContainer colorSchema={colorSchema} {...rest}>{children}</ButtonContainer>
-    )
-}
+const Button = ({ click, children, colorSchema = false, ...rest }) => {
+  return (
+    <>
+      {click ? (
+        <ButtonContainer onClick={click} colorSchema={colorSchema} {...rest}>
+          {children}
+        </ButtonContainer>
+      ) : (
+        <ButtonContainer colorSchema={colorSchema} {...rest}>
+          {children}
+        </ButtonContainer>
+      )}
+    </>
+  );
+};
 
-export default Button
+export default Button;
