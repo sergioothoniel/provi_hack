@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  height: 100vh;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,29 +9,67 @@ export const HomeContainer = styled.div`
   margin: auto;
   padding: 0 2px 15px 0;
 
-  @media (min-width: 320px) and (max-width: 500px) {
-    hr {
-      margin: 30px 10px;
+  .header-mobile{
+    display: flex;
+    padding: 20px 0;
+
+    >h1{
+      margin-left: 30px;
     }
 
-    header {
-      display: flex;
-      padding: 15px 0 0 21px;
-      align-items: center;
-
-      button {
-        width: 45px;
-        margin-right: 35px;
-      }
-    }
-
-    > section {
-      border: 1px solid white;
-      width: 100%;
-      height: 30vh;
+    >button{
+      width: 50px;
     }
   }
-`;
+
+  .header-desktop{
+    display: none;
+    width: 100%;
+    height: 600px;
+
+    >section{
+      width: 100%;
+      display: flex;
+      height: 20%;
+      align-items: center;
+      justify-content: space-around;
+      background: #00000070;
+}
+      
+      h5, h4, h3, h1{
+        background: none;
+        cursor: pointer;
+        font-size: medium;
+        font-weight: normal;
+      }
+
+      h1{
+        font-size: initial;
+        font-weight: initial;
+      }
+
+      >button{
+        width: 95px;
+      }
+    }
+        
+  
+
+  @media (min-width: 500px){
+    .header-mobile{
+      display: none;
+    }
+
+    .header-desktop{
+      display: flex;
+    }
+
+    >section{
+      display: none;
+    }
+
+  }
+`
 
 export const ImgBanner = styled.img`
   @media (min-width: 320px) and (max-width: 500px) {

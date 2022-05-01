@@ -16,6 +16,8 @@ import CardVehicle from "../../components/CardVehicle";
 import { useHistory } from "react-router-dom";
 import { Menu } from "../../models/menu";
 import { useState } from "react";
+import "./styles.css"
+
 
 const Home = () => {
   const [menu, setMenu] = useState(false);
@@ -39,13 +41,27 @@ const Home = () => {
 
   return (
     <>
+    
       {menu && <Menu click={closeMenu} />}
       <HomeContainer>
-        <header>
+
+      
+        <header className="header-mobile">
           <Button click={openMenu}>
             <AiOutlineRight />
           </Button>
           <Logo />
+        </header>
+
+        <header className="header-desktop">
+          <section>
+            <Logo/>
+            <h5>Empresa</h5>
+            <h5>Ajuda</h5>
+            <h4>MINAHS RESERVAS</h4>
+            <h3>LOGIN</h3>
+            <Button>Cadastre-se</Button>
+          </section>
         </header>
 
         <section>
