@@ -5,7 +5,7 @@ import {
   ConteInfo,
   ConteMenu,
   ConteMenuGeral,
-  Divisao,
+  DivisaoMenu,
 } from "./style";
 
 import home from "../../img/home.png";
@@ -39,7 +39,7 @@ export const Menu = ({ click }) => {
           <h1>Maykon Dias</h1>
           <h3>maykon@gmail.com</h3>
         </ConteInfo>
-        <Divisao></Divisao>
+        <DivisaoMenu />
         <ConteBtns>
           <BtnsHome>
             <img src={home} />
