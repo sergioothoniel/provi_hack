@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Anunciar from "../pages/Anunciar";
 import Home from "../pages/Home";
@@ -6,13 +7,15 @@ import { Perfil } from "../pages/Perfil";
 import Register from "../pages/Register";
 
 function Routers() {
+  const [auth, setAuth] = useState(false);
+
   return (
     <Switch>
       <Route exact path={"/"}>
-        <Home />
+        <Home auth={auth} setAuth={setAuth} />
       </Route>
       <Route path={"/login"}>
-        <Login />
+        <Login setAuth={setAuth} />
       </Route>
       <Route path={"/register"}>
         <Register />
@@ -20,7 +23,9 @@ function Routers() {
       <Route path={"/perfil"}>
         <Perfil />
       </Route>
-      <Route path={"/post"}><Anunciar/></Route>
+      <Route path={"/post"}>
+        <Anunciar />
+      </Route>
     </Switch>
   );
 }

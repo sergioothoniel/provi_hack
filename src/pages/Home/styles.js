@@ -1,109 +1,141 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 90%;
-  margin: auto;
-  padding: 0 2px 15px 0;
-
   @media (min-width: 320px) and (max-width: 500px) {
-    hr {
-      margin: 30px 10px;
-    }
-
-    header {
-      display: flex;
-      padding: 15px 0 0 21px;
-      align-items: center;
-
-      button {
-        width: 45px;
-        margin-right: 35px;
-      }
-    }
-
-    > section {
-      border: 1px solid white;
-      width: 100%;
-      height: 30vh;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
   }
-`;
-
-export const ImgBanner = styled.img`
-  @media (min-width: 320px) and (max-width: 500px) {
-    width: 100%;
-    height: 100%;
-  } ;
 `;
 
 export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  box-sizing: border-box;
   p {
+    font-size: 0.9em;
+    font-weight: 200;
     color: #ffffff80;
+    box-sizing: border-box;
   }
+`;
 
-  h4 {
-    color: #ffffffcf;
+export const DivisaoHome = styled.div`
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 100%;
+    height: 1px;
+    background-color: #222d58;
+    margin-bottom: 20px;
+    box-sizing: border-box;
   }
 `;
 
 export const DetailsContainer = styled.div`
-  display: flex;
+  @media (min-width: 320px) and (max-width: 500px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
 
-  div {
-    width: 33%;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      width: 30%;
+    }
+
+    svg {
+      width: 3em;
+      height: 3em;
+    }
+
+    p {
+      word-wrap: break-word;
+      color: #ffffff80;
+    }
   }
-
-  svg {
-    width: 3em;
-    height: 3em;
-  }
-
-  p {
-    color: #ffffff80;
+`;
+export const ConteBtnHome = styled.div`
+  @media (min-width: 320px) and (max-width: 500px) {
+    display: flex;
+    margin: 50px 0;
+    button {
+      background-color: transparent;
+      border: 1px solid #ffffff80;
+      padding: 2px 60px;
+      box-sizing: border-box;
+    }
   }
 `;
 
 export const CardsContainer = styled.div`
-  display: flex;
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
 `;
 
 export const BonusContainer = styled.div`
-  color: #ffffff80;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  justify-content: space-between;
+  @media (min-width: 320px) and (max-width: 500px) {
+    color: #ffffff80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    box-sizing: border-box;
 
-  > div {
-    max-width: 49%;
-    margin-top: 20px;
+    h5 {
+      color: inherit;
+      font-size: medium;
+      text-align: center;
+      margin: 30px 0;
+      font-weight: 200;
+    }
   }
+`;
 
-  h5 {
-    color: inherit;
-    font-size: medium;
-    width: 70%;
-    margin: auto;
+export const ConteInfoSust = styled.div`
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    div {
+      margin: 0 10px 0 0;
+    }
   }
 `;
 
 export const TittleBonus = styled.h4`
-  width: 100%;
-  border: 2px solid;
-  border-radius: 15px;
-  color: inherit;
+  @media (min-width: 320px) and (max-width: 500px) {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #4c535c;
+    border-radius: 10px;
+    color: inherit;
+    background-color: #111e2f;
+    box-sizing: border-box;
+  }
 `;
 export const BonusBox = styled.ul`
   border: 2px solid;
   border-radius: 15px;
   color: inherit;
-  height: 135px;
   padding: 10px 15px 0 25px;
   margin-top: 10px;
+  border: 2px solid #4c535c;
+  background-color: #111e2f;
+  box-sizing: border-box;
 
   li {
     margin-bottom: 15px;
@@ -116,4 +148,5 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 `;
