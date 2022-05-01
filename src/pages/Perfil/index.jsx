@@ -1,14 +1,29 @@
-import { ButtonContainer } from "../../components/Button/styles";
 import {
   ContainerInfo,
   ContainerPerfil,
-  ConteBtns,
-  ConteInfoExtra,
+  ConteBtn,
+  ConteInfoStatic,
+  ContePoints,
+  ConteStaticInfo,
+  ConteStatistic,
+  ContValor,
+  DivisaoPerfil,
   ImgInfo,
-  InfoDados,
 } from "./style";
 
+import editar from "../../img/editar.png";
+import { useForm } from "react-hook-form";
+import Input, { InputPerfilBox } from "../../components/Input";
+import Button from "../../components/Button";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 export const Perfil = () => {
+  const history = useHistory();
+
+  const BtnVoltar = () => {
+    history.push("/");
+  };
+
   return (
     <ContainerPerfil>
       <ContainerInfo>
@@ -18,38 +33,61 @@ export const Perfil = () => {
             alt="user"
           />
         </ImgInfo>
-        <InfoDados>
-          <p>Nome: Teste</p>
-          <p>Email:</p>
-          <p>CPF:</p>
-          <p>Telefone:</p>
-        </InfoDados>
+        <span>
+          <img src={editar} alt="" />
+        </span>
+        <h1>Maykon Dias</h1>
+        <h3>maykon@gmail.com</h3>
       </ContainerInfo>
-      <ConteInfoExtra>
-        <div>Pontos</div>
-        <div>Veiculos Locados</div>
-        <div>Veiculos e bikes anunciados</div>
-      </ConteInfoExtra>
-      <ConteBtns>
-        <button>Editar Perfil</button>
-        <button>Pagamentos</button>
-        <button>Segurança</button>
-        <button>Completar Cadastro</button>
-        <button>Logaut</button>
-      </ConteBtns>
-      <div>
-        <div>Alugar Veiculo ou Bike</div>
-        <div>Anunciar Veiculo ou Bike</div>
-      </div>
-      <div>
-        <div>
-          Anuncie veiculo elétrico ou hibrido e tenha 20% a mais de
-          rentabilidade
-        </div>
-      </div>
-      <div>
-        <button>home</button>
-      </div>
+      <DivisaoPerfil />
+
+      <ConteInfoStatic>
+        <ConteStatistic>
+          <ConteStaticInfo>
+            <ContePoints>
+              <p>0</p>
+              <div></div>
+              <span>NewPontos</span>
+            </ContePoints>
+          </ConteStaticInfo>
+          <ContValor>
+            <span>0</span>
+          </ContValor>
+        </ConteStatistic>
+        <ConteStatistic>
+          <ConteStaticInfo>
+            <ContePoints>
+              <p>0</p>
+              <div></div>
+              <span>Alugados</span>
+            </ContePoints>
+          </ConteStaticInfo>
+          <ContValor>
+            <span>0</span>
+          </ContValor>
+        </ConteStatistic>
+      </ConteInfoStatic>
+
+      <DivisaoPerfil />
+      <InputPerfilBox label="Nome">Maykon</InputPerfilBox>
+      <InputPerfilBox label="Sobrenome">Dias</InputPerfilBox>
+      <InputPerfilBox label="Email">maykon@gmail.com</InputPerfilBox>
+      <InputPerfilBox label="Telefone">(67) 95555-5555</InputPerfilBox>
+      <InputPerfilBox disabled="disabled" label="CPF">
+        555.555.555-55
+      </InputPerfilBox>
+      <InputPerfilBox label="CNH">AB</InputPerfilBox>
+      <InputPerfilBox label="CEP">21560-002</InputPerfilBox>
+      <InputPerfilBox label="UF">MS</InputPerfilBox>
+      <InputPerfilBox label="Cidade">Campo Grande</InputPerfilBox>
+      <InputPerfilBox label="Bairro">Florida</InputPerfilBox>
+      <InputPerfilBox label="Rua">Agua Boa</InputPerfilBox>
+      <InputPerfilBox label="Nº">1523</InputPerfilBox>
+      <InputPerfilBox label="Complemento"></InputPerfilBox>
+      <ConteBtn>
+        <Button click={BtnVoltar}>Voltar</Button>
+        <Button colorSchema="true">Salvar</Button>
+      </ConteBtn>
     </ContainerPerfil>
   );
 };

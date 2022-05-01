@@ -60,7 +60,7 @@ export const ConteInfo = styled.div`
   }
 `;
 
-export const Divisao = styled.div`
+export const DivisaoMenu = styled.div`
   @media (min-width: 320px) and (max-width: 500px) {
     width: 100%;
     height: 3px;
