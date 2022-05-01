@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import Anunciar from "../pages/Anunciar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import { Perfil } from "../pages/Perfil";
@@ -19,6 +20,7 @@ function Routers() {
       <Route path={"/perfil"}>
         <Perfil />
       </Route>
+      <Route path={"/post"}><Anunciar/></Route>
     </Switch>
   );
 }
