@@ -7,10 +7,14 @@ import { useForm } from "react-hook-form"
 import InputSelect from "../../components/InputSelect"
 import { useHistory } from "react-router-dom"
 import { AiOutlineLeft } from "react-icons/ai";
+import { useState } from "react"
+import ConfirmPost from "../../models/ConfirmPost"
 
 
 
 const Anunciar = () =>{
+
+    const [showConfirm, setShowConfirm] = useState(false)
 
     const history = useHistory()
 
@@ -18,12 +22,18 @@ const Anunciar = () =>{
 
     const onSubmitFunction = (data) =>{
         console.log(data)
+        setShowConfirm(true)
+    }
+
+    const modalOnClickFunction = () =>{
+        setShowConfirm(false)
+        history.push('/')
     }
 
     return(
-        <PostContainer>
+        <PostContainer hide={showConfirm}>
             <header>
-                <Button onClick={()=>history.push('/')}><AiOutlineLeft /></Button>
+                <Button onClick={()=>history.push('/')} ><AiOutlineLeft /></Button>
                 <Logo/>
                 <span>Maykon Dias</span>
             </header>          
@@ -58,15 +68,20 @@ const Anunciar = () =>{
                     </fieldset>
 
                     <Input register={register} name='imagem'>Imagens <span className="img-link">(link)</span></Input>
+                    <Input register={register} name='valor'>Valor do aluguel (diária)</Input>
+                    <p>Valor sugerido: <a href="">R$ 98,00</a></p>
 
-                    <span>Ao anunciar você aceita nossos <a href="\">Termos de Uso</a> e <a href="\">Privacidade</a></span>
+                    <span>Ao enviar você aceita nossos <a href="\">Termos de Uso</a> e <a href="\">Privacidade</a></span>
 
                 </div>               
 
                 <Button type='submit'>Enviar</Button>                
             </form>
 
+            {showConfirm && <ConfirmPost onClickFinction={modalOnClickFunction}/>}
+
         </PostContainer>
+
     )
 }
 

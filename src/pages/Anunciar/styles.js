@@ -22,7 +22,7 @@ header{
         font-size: x-small;
     }    
 
-    button{
+    >button{
         width: 50px;
     }
 }
@@ -57,6 +57,17 @@ form{
     >span{
         font-size: small;
         text-align: center;
+    }
+
+    >p{
+        background-color: inherit;
+        margin-top: -33px;
+        font-size: x-small;
+        
+        >a{
+            text-decoration: underline;
+            color: inherit;
+        }
     }
 }
 
