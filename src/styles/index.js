@@ -1,5 +1,4 @@
-import {createGlobalStyle} from "styled-components"
-
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body, p, h1, h2, h3, h4, h5, h6, figure{
@@ -8,13 +7,11 @@ body, p, h1, h2, h3, h4, h5, h6, figure{
     font-family: 'Inter', sans-serif;
     background-color: #17222a;
     color: #F8F9FA;
-    
 }
 
 a{
     text-decoration: none;
 }
+`;
 
-`
-
-export default GlobalStyle
+export default GlobalStyle;
