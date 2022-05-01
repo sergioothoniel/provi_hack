@@ -1,0 +1,6 @@
+.div-banner{
+    width: 100vw;
+    height: 30vh;
+    background-image: url('../../img/newrota_-_banner.jpg');
+    background-size: cover;
+}
