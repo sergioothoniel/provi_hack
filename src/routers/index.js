@@ -8,6 +8,19 @@ import Register from "../pages/Register";
 function Routers() {
   return (
     <Switch>
+<<<<<<< HEAD
+      <Route exect path={"/"}>
+        <Home />
+      </Route>
+
+      <Route path={"/login"}>
+        <Login />
+      </Route>
+
+      <Route path={"/register"}>
+        <Register />
+      </Route>
+=======
       <Route exact path={"/"}>
         <Home />
       </Route>
@@ -21,6 +34,7 @@ function Routers() {
         <Perfil />
       </Route>
       <Route path={"/post"}><Anunciar/></Route>
+>>>>>>> 7b4b532a4bad768affa2cfbbc675f7b448ee6bbb
     </Switch>
   );
 }

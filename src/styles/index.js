@@ -8,11 +8,14 @@ body, p, h1, h2, h3, h4, h5, h6, figure, option{
     background-color: #0D1724;
     color: #F8F9FA; 
     
+
 }
 
 a{
     text-decoration: none;
 }
+`;
+
 
 button{
     cursor: pointer;
