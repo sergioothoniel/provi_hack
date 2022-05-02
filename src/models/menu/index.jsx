@@ -30,6 +30,7 @@ export const Menu = ({ click, setAuth }) => {
   };
 
   const funcLogOut = () => {
+    window.localStorage.removeItem("authHack");
     setAuth(false);
     history.push("/login");
   };

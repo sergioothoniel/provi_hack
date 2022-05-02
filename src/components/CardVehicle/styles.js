@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
     padding: 20px 15px;
     box-sizing: border-box;
     background-color: #111e2f;
-    margin: 20px 10px 0 0;
+    margin: 20px 10px 3px 0;
     figure {
       width: 200px;
       width: 150px;

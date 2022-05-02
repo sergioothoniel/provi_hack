@@ -7,13 +7,14 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import { Close } from "../../components/close";
+import { api } from "../../API/index";
 
-const Login = ({ setAuth }) => {
+const Login = ({ setToken }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
-    password: yup
+    senha: yup
       .string()
       .required("Campo obrigatório")
       .min(6, "Mínimo de 6 caracteres"),
@@ -26,8 +27,18 @@ const Login = ({ setAuth }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    history.push("/");
-    setAuth(true);
+    console.log();
+    api
+      .post("/auth/login", data)
+      .then((response) => {
+        console.log(response.data.token);
+        window.localStorage.clear();
+        window.localStorage.setItem("authHack", response.data.token);
+        history.push(`/`);
+        setToken(response.data.token);
+        return response.data;
+      })
+      .catch((err) => console.log(err));
   };
 
   const voltarHome = () => {
@@ -53,7 +64,7 @@ const Login = ({ setAuth }) => {
             placeholder="Digite sua senha"
             type={"password"}
             register={register}
-            name="password"
+            name="senha"
             error={errors.password?.message}
           >
             Senha:

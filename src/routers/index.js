@@ -7,15 +7,15 @@ import { Perfil } from "../pages/Perfil";
 import Register from "../pages/Register";
 
 function Routers() {
-  const [auth, setAuth] = useState(false);
+  const [token, setToken] = useState(window.localStorage.getItem("authHack"));
 
   return (
     <Switch>
       <Route exact path={"/"}>
-        <Home auth={auth} setAuth={setAuth} />
+        <Home token={token} setToken={setToken} />
       </Route>
       <Route path={"/login"}>
-        <Login setAuth={setAuth} />
+        <Login setToken={setToken} />
       </Route>
       <Route path={"/register"}>
         <Register />

@@ -20,7 +20,8 @@ import { Menu } from "../../models/menu";
 import { useState } from "react";
 import { Headers } from "../../components/Header";
 
-const Home = ({ auth, setAuth }) => {
+const Home = ({ token, setToken }) => {
+  console.log(token);
   const [menu, setMenu] = useState(false);
   const [logo, setlogo] = useState(true);
   const history = useHistory();
@@ -42,12 +43,16 @@ const Home = ({ auth, setAuth }) => {
     setMenu(true);
     setlogo(false);
   };
+  /* 
+  if (!token) {
+    history.push("/login");
+  } */
 
   return (
     <>
-      {menu && <Menu setAuth={setAuth} click={closeMenu} />}
+      {menu && <Menu setAuth={setToken} click={closeMenu} />}
       {logo ? (
-        <Headers auth={auth} openMenu={openMenu} />
+        <Headers auth={token} openMenu={openMenu} />
       ) : (
         <Headers classe="off" openMenu={openMenu} />
       )}
@@ -138,7 +143,7 @@ const Home = ({ auth, setAuth }) => {
           <Button>Saiba mais</Button>
         </ConteBtnHome>
         <DivisaoHome />
-        {!auth && (
+        {!token && (
           <ButtonsContainer>
             <Button colorSchema onClick={loginRedirect}>
               Entre

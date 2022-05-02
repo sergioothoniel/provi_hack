@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ConteHeader = styled.header`
   @media (min-width: 320px) and (max-width: 500px) {
-    height: 40vh;
+    height: 20vh;
     img {
       width: 100%;
       height: 100%;

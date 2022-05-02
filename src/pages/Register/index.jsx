@@ -7,20 +7,32 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import { Close } from "../../components/close";
+import { api } from "../../API/index";
 
 const Register = () => {
   const history = useHistory();
 
   const schema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
+    nome: yup
+      .string()
+      .required("Campo Obrigatório")
+      .matches("^([a-zA-Z]+)$", "Somente letras"),
+    sobrenome: yup
+      .string()
+      .required("Campo Obrigatório")
+      .matches("^([a-zA-Z ]+)$", "Somente letras"),
     email: yup.string().email("Email inválido").required("Campo Obrigatório"),
-    password: yup
+    senha: yup
       .string()
       .required("Campo obrigatório")
-      .min(6, "Mínimo de 6 caracteres"),
+      .min(6, "Mínimo de 6 caracteres")
+      .matches(
+        "(?=^.{8,20})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[#!-@_])",
+        "Somente letras maiúscula e minúscula, um número, e um caracter especial (# $ @ !)"
+      ),
     passwordConfirm: yup
       .string()
-      .oneOf([yup.ref("password")], "Senhas diferentes")
+      .oneOf([yup.ref("senha")], "Senhas diferentes")
       .required("Campo obrigatório"),
   });
 
@@ -31,7 +43,15 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    delete data.passwordConfirm;
+
+    api
+      .post("/auth/registro", data)
+      .then((response) => {
+        console.log(response);
+        return response.data;
+      })
+      .catch((err) => console.log(err));
     history.push("/login");
   };
 
@@ -49,10 +69,18 @@ const Register = () => {
           <Input
             type={"text"}
             register={register}
-            name="name"
+            name="nome"
             error={errors.name?.message}
           >
-            Nome completo:
+            Nome:
+          </Input>
+          <Input
+            type={"text"}
+            register={register}
+            name="sobrenome"
+            error={errors.surname?.message}
+          >
+            Sobrenome:
           </Input>
           <Input
             type={"email"}
@@ -65,7 +93,7 @@ const Register = () => {
           <Input
             type={"password"}
             register={register}
-            name="password"
+            name="senha"
             error={errors.password?.message}
           >
             Senha:

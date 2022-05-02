@@ -20,7 +20,7 @@ const Anunciar = () => {
   return (
     <PostContainer>
       <header>
-        <Button funct="false" onClick={() => history.push("/")}>
+        <Button onClick={() => history.push("/")}>
           <AiOutlineLeft />
         </Button>
         <Logos />
