@@ -1,5 +1,5 @@
 import "./App.css";
-import Routers from "./routers";
+import Routers from "./routers";  
 import GlobalStyle from "./styles";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
       <Routers />
     </div>
   );
+
 }
 
 export default App;

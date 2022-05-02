@@ -37,7 +37,7 @@ export const ModalContent = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   line-height: 1.8;
-  color: #141414;
+  color: #cbcbcb;
   padding: 8px;
 
   p {
@@ -62,17 +62,17 @@ export const CloseModalButton = styled(MdClose)`
 `;
 
 export const EletricSpan= styled.span` 
-    position: fixed;
-    right: 240px;
-    top: 50px;
-    width: 60px;
-    display: block;
-    height: 25px;
-    background: #59a5e9;
-    color: #fff;
-    text-align: center;
-    border-radius: 15px;
-    font-size: 25px;
-    line-height: 25px;
-    font-weight: 700;
+  position: fixed;
+  right: 230px;
+  top: 50px;
+  width: 70px;
+  display: block;
+  height: 25px;
+  background: #59a5e9;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 700;
 `

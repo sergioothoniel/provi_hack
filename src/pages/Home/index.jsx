@@ -3,10 +3,12 @@ import {
   BonusContainer,
   ButtonsContainer,
   CardsContainer,
+  ConteBtnHome,
+  ConteInfoSust,
   DescriptionContainer,
   DetailsContainer,
+  DivisaoHome,
   HomeContainer,
-  ImgBanner,
   TittleBonus,
 } from "./styles";
 import Button from "../../components/Button";
@@ -16,9 +18,11 @@ import CardVehicle from "../../components/CardVehicle";
 import { useHistory } from "react-router-dom";
 import { Menu } from "../../models/menu";
 import { useState } from "react";
+import { Headers } from "../../components/Header";
 
-const Home = () => {
+const Home = ({ auth, setAuth }) => {
   const [menu, setMenu] = useState(false);
+  const [logo, setlogo] = useState(true);
   const history = useHistory();
 
   const loginRedirect = () => {
@@ -30,62 +34,57 @@ const Home = () => {
   };
 
   const closeMenu = () => {
+    setlogo(true);
     setMenu(false);
   };
 
   const openMenu = () => {
     setMenu(true);
+    setlogo(false);
   };
 
   return (
     <>
-      {menu && <Menu click={closeMenu} />}
-      <HomeContainer>
-        <header>
-          <Button click={openMenu}>
-            <AiOutlineRight />
-          </Button>
-          <Logo />
-        </header>
-
-        <section>
-          <ImgBanner
-            src="https://www.seekpng.com/png/detail/799-7994044_carros-png-imagens-de-carros-png.png"
-            alt=""
-            srcset=""
-          />
-        </section>
-
+      {menu && <Menu setAuth={setAuth} click={closeMenu} />}
+      {logo ? (
+        <Headers auth={auth} openMenu={openMenu} />
+      ) : (
+        <Headers classe="off" openMenu={openMenu} />
+      )}
+      <HomeContainer classe="off">
         <DescriptionContainer>
-          <p>Diversos carros e bicicletas na palma da sua mão</p>
-          <p>Grande disponibilidade de veículos sutentáveis</p>
-          <p>Simples assim</p>
-          <h4>Somos o futuro.</h4>
+          <p>Contruibua para o meio-ambiente.</p>
+          <p>Use //newrota</p>
         </DescriptionContainer>
-
+        <DivisaoHome />
         <DetailsContainer>
           <div>
             <AiFillCaretDown fill="#0e151a" stroke="#fff" strokeWidth={15} />
-            <p>Alugue um carro de maneira simplificada</p>
+            <p>Alugue um carro de maneira simplificada.</p>
           </div>
           <div>
             <AiFillCaretDown fill="#0e151a" stroke="#fff" strokeWidth={15} />
-            <p>Ganhe desconto progressivo por colaborar com o meio ambiente</p>
+            <p>Ganhe desconto progressivo por colaborar com o meio ambiente.</p>
           </div>
           <div>
             <AiFillCaretDown fill="#0e151a" stroke="#fff" strokeWidth={15} />
-            <p>Reduza gastos, emissões e burocracias</p>
+            <p>Reduza emissões e burocracias.</p>
           </div>
         </DetailsContainer>
 
+        <ConteBtnHome>
+          <Button>O que oferecemos</Button>
+        </ConteBtnHome>
+
+        <DivisaoHome />
         <CardsContainer>
           <CardVehicle
             src={"https://img1.icarros.com/dbimg/imgadicionalnoticia/4/98279_1"}
             name="Voyage"
-            fuel={"Gasolina"}
             location="Mooca"
             city={"SP"}
-            price="R$ 180,00"
+            price="180"
+            fuel={"Híbrido"}
           />
           <CardVehicle
             src={
@@ -95,7 +94,7 @@ const Home = () => {
             fuel={"Híbrido"}
             location="Mooca"
             city={"SP"}
-            price="R$ 400,00"
+            price="400"
           />
           <CardVehicle
             src={
@@ -105,38 +104,48 @@ const Home = () => {
             fuel={"Híbrido"}
             location="Mooca"
             city={"SP"}
-            price="R$ 400,00"
+            price="400"
           />
         </CardsContainer>
 
-        <hr />
+        <ConteBtnHome>
+          <Button>Ver catalógo</Button>
+        </ConteBtnHome>
+        <DivisaoHome />
 
         <BonusContainer>
           <h5>
-            Um planeta mais sustentável é nosso <b>destio</b>
+            Um planeta mais sustentável é nosso <b>destio</b>.
           </h5>
-          <div>
-            <TittleBonus>quem aluga</TittleBonus>
-            <BonusBox>
-              <li>30% de desconto ao locar veículo elético ou híbrido</li>
-              <li>30% de cashback ao locar uma bicicleta</li>
-            </BonusBox>
-          </div>
-          <div>
-            <TittleBonus>quem aluga</TittleBonus>
-            <BonusBox>
-              <li>30% de desconto ao locar veículo elético ou híbrido</li>
-              <li>30% de desconto ao locar uma bicicleta</li>
-            </BonusBox>
-          </div>
+          <ConteInfoSust>
+            <div>
+              <TittleBonus>quem aluga</TittleBonus>
+              <BonusBox>
+                <li>30% de desconto ao locar veículo elético ou híbrido</li>
+                <li>30% de cashback ao locar uma bicicleta</li>
+              </BonusBox>
+            </div>
+            <div>
+              <TittleBonus>quem aluga</TittleBonus>
+              <BonusBox>
+                <li>30% de desconto ao locar veículo elético ou híbrido</li>
+                <li>30% de desconto ao locar uma bicicleta</li>
+              </BonusBox>
+            </div>
+          </ConteInfoSust>
         </BonusContainer>
-
-        <ButtonsContainer>
-          <Button colorSchema onClick={loginRedirect}>
-            Entre
-          </Button>
-          <Button onClick={registerRedirect}>Cadastre-se</Button>
-        </ButtonsContainer>
+        <ConteBtnHome>
+          <Button>Saiba mais</Button>
+        </ConteBtnHome>
+        <DivisaoHome />
+        {!auth && (
+          <ButtonsContainer>
+            <Button colorSchema onClick={loginRedirect}>
+              Entre
+            </Button>
+            <Button onClick={registerRedirect}>Cadastre-se</Button>
+          </ButtonsContainer>
+        )}
       </HomeContainer>
     </>
   );
