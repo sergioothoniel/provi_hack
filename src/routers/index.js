@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import Alugar from "../pages/Alugar";
 import Anunciar from "../pages/Anunciar";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -25,6 +26,9 @@ function Routers() {
       </Route>
       <Route path={"/post"}>
         <Anunciar />
+      </Route>
+      <Route path={"/rent"}>
+        <Alugar/>
       </Route>
     </Switch>
   );

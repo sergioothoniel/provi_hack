@@ -29,6 +29,10 @@ export const Menu = ({ click, setAuth }) => {
     history.push("/post");
   };
 
+  const funcAlugar = () => {
+    history.push("/rent");
+  };
+
   const funcLogOut = () => {
     setAuth(false);
     history.push("/login");
@@ -58,7 +62,7 @@ export const Menu = ({ click, setAuth }) => {
             <img src={anunciar} />
             <h2>Anunciar</h2>
           </BtnsHome>
-          <BtnsHome>
+          <BtnsHome onClick={funcAlugar}>
             <img src={alugar} />
             <h2>Alugar</h2>
           </BtnsHome>
