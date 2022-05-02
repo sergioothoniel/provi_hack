@@ -1,3 +1,5 @@
+import {Modal} from "../modal"
+import {useState} from "react"
 import {
   CardContainer,
   ConteIndoCard,
@@ -6,8 +8,13 @@ import {
 } from "./styles";
 
 const CardVehicle = ({ name, src, fuel, location, city, price }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(!showModal);
+  };
   return (
-    <CardContainer>
+    <CardContainer onClick={openModal}>
       <figure>
         <img src={src} alt="" />
       </figure>
@@ -27,6 +34,7 @@ const CardVehicle = ({ name, src, fuel, location, city, price }) => {
           {location} - {city}
         </h2>
       </ConteLocal>
+      <Modal showModal={showModal} setShowModal={setShowModal} src= {src} />
     </CardContainer>
   );
 };
