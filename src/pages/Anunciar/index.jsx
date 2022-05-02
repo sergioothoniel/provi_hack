@@ -1,6 +1,7 @@
 import { PostContainer } from "./styles";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Logos from "../../components/Logo";
 
 import { useForm } from "react-hook-form";
 import InputSelect from "../../components/InputSelect";
@@ -19,7 +20,7 @@ const Anunciar = () =>{
     const {register, handleSubmit} = useForm()
 
     const onSubmitFunction = (data) =>{
-        console.log(data)
+        
         setShowConfirm(true)
     }
 
@@ -32,7 +33,7 @@ const Anunciar = () =>{
         <PostContainer hide={showConfirm}>
             <header>
                 <Button onClick={()=>history.push('/')} ><AiOutlineLeft /></Button>
-                <Logo/>
+                <Logos/>
                 <span>Maykon Dias</span>
             </header>          
 
