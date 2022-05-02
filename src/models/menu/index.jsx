@@ -18,11 +18,20 @@ import logOut from "../../img/logOut.png";
 import { Close } from "../../components/close";
 import { useHistory } from "react-router-dom";
 
-export const Menu = ({ click }) => {
+export const Menu = ({ click, setAuth }) => {
   const history = useHistory();
 
   const funcPerfil = () => {
     history.push("/perfil");
+  };
+
+  const funcAnunciar = () => {
+    history.push("/post");
+  };
+
+  const funcLogOut = () => {
+    setAuth(false);
+    history.push("/login");
   };
 
   return (
@@ -45,7 +54,7 @@ export const Menu = ({ click }) => {
             <img src={home} />
             <h2>Home</h2>
           </BtnsHome>
-          <BtnsHome>
+          <BtnsHome onClick={funcAnunciar}>
             <img src={anunciar} />
             <h2>Anunciar</h2>
           </BtnsHome>
@@ -65,7 +74,7 @@ export const Menu = ({ click }) => {
             <img src={configuracao} />
             <h2>Configurações</h2>
           </BtnsHome>
-          <BtnsHome>
+          <BtnsHome onClick={funcLogOut}>
             <img src={logOut} />
             <h2>Log Out</h2>
           </BtnsHome>

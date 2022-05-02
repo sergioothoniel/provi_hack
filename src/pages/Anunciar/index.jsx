@@ -1,16 +1,14 @@
-import { PostContainer } from "./styles"
-import Button from "../../components/Button"
-import Logo from "../../components/Logo"
-import Input from "../../components/Input"
+import { PostContainer } from "./styles";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
 
-import { useForm } from "react-hook-form"
-import InputSelect from "../../components/InputSelect"
-import { useHistory } from "react-router-dom"
+import { useForm } from "react-hook-form";
+import InputSelect from "../../components/InputSelect";
+import { useHistory } from "react-router-dom";
 import { AiOutlineLeft } from "react-icons/ai";
+
 import { useState } from "react"
 import ConfirmPost from "../../models/ConfirmPost"
-
-
 
 const Anunciar = () =>{
 
